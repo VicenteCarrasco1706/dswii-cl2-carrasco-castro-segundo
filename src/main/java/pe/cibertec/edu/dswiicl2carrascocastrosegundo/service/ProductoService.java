@@ -41,4 +41,11 @@ public class ProductoService {
         return productoRepository.filtrarProductosPorNombre(filtro);
     }
 
+    public List<Producto> getProductosEntre10y100() {
+        return productoRepository.findProductosEntre10y100();
+    }
+
+    public List<Producto> getProductosPorAnioDeVencimiento() {
+        return productoRepository.findProductosPorAnioDeVencimiento();
+    }
 }

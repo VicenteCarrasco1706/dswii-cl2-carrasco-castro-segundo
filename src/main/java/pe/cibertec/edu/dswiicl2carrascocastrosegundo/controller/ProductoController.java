@@ -73,4 +73,22 @@ public class ProductoController {
                 productoService.guardar(oldProducto), HttpStatus.OK
         );
     }
+
+    @GetMapping("/rango-cantidad")
+    public ResponseEntity<List<Producto>> getProductosEntre10y100() {
+        List<Producto> productos = productoService.getProductosEntre10y100();
+        if (productos.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(productos, HttpStatus.OK);
+    }
+
+    @GetMapping("/anio-vencimiento")
+    public ResponseEntity<List<Producto>> getProductosPorAnioDeVencimiento() {
+        List<Producto> productos = productoService.getProductosPorAnioDeVencimiento();
+        if (productos.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(productos, HttpStatus.OK);
+    }
 }

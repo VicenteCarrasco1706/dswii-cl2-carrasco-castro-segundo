@@ -22,5 +22,11 @@ public interface ProductoRepository extends JpaRepository<Producto, Integer> {
     @Query(value = "SELECT * FROM producto WHERE nombre LIKE %:filtro%", nativeQuery = true)
     List<Producto> filtrarProductosPorNombreSQL(@Param("filtro") String filtro);
 
+    @Query("SELECT p FROM Producto p WHERE p.cantidad > 10 AND p.cantidad < 100")
+    List<Producto> findProductosEntre10y100();
+
+    @Query(value = "SELECT * FROM producto WHERE fechavencimiento = 2024", nativeQuery = true)
+    List<Producto> findProductosPorAnioDeVencimiento();
+
 
 }
